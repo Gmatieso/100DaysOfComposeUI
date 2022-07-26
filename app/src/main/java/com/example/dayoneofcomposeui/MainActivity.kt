@@ -7,9 +7,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -103,6 +105,32 @@ fun HeaderProfileComponent() {
 @Preview
 @Composable
 fun SearchInputComponent() {
+    OutlinedTextField(
+        value = " ", onValueChange = {},
+        placeholder = { Text(text = "Search", fontFamily = nunitoLight) },
+        // put your vector icon here
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = "Search Icon" )
+        },
+        // put your drawable icon here
+        trailingIcon = {
+            Icon(painter = painterResource(id = R.drawable.filter),
+                modifier = Modifier.size(24.dp), // size of the drawable icon
+                contentDescription = "Filter Icon" )
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+             .padding(top = 25.dp, start = 15.dp, end = 15.dp)
+            .background(color = Color.White, shape = RoundedCornerShape(8.dp)),
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.LightGray,
+            unfocusedBorderColor = Color.White,
+            cursorColor = Color.LightGray,
+            trailingIconColor = Black
+        )
+    )
 
 }
 
