@@ -10,7 +10,7 @@ import com.example.dayoneofcomposeui.R
 
 
 // For user to call use fonts in the design they must be defined here
-val munitoLight = FontFamily(Font(R.font.nunito_light))
+val nunitoLight = FontFamily(Font(R.font.nunito_light))
 val nunitoRegular = FontFamily(Font(R.font.nunito_regular))
 val nunitoBold = FontFamily(Font(R.font.nunito_bold))
 val nunitoMedium = FontFamily(Font(R.font.nunito_medium))
