@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,6 +27,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.dayoneofcomposeui.ui.theme.*
 import com.example.dayoneofcomposeui.ui.theme.utils.FILTER_CONTENT_LIST
+import com.example.dayoneofcomposeui.ui.theme.utils.FilterContent
+import com.example.dayoneofcomposeui.ui.theme.utils.MEDITATION_TYPE_LIST
+import com.example.dayoneofcomposeui.ui.theme.utils.MeditationType
+import com.google.android.material.chip.Chip
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -150,10 +155,105 @@ val filterOptions = FILTER_CONTENT_LIST
     }
 }
 
+// I DON'T KNOW WHAT THIS EXPERIMENTALMATERIALAPI DOES TO BE RESEARCHED MORE
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun ChipComponent(filter: FilterContent)
+{
+    val contentColor = filter.contentColor
+    val chipBackground = filter.backgroundColor
+    val filterText = filter.filterText
+    // I DONT KNOW WHAT THIS COMPOSABLE FUNCTION DOES. TO BE RESEARCHED
+
+ Chip(
+            onClick = { /*TODO*/ },
+            colors = ChipDefaults.chipColors(
+                contentColor = contentColor,
+                backgroundColor = chipBackground
+            ),
+            shape = RoundedCornerShape(8.dp)
+        ) {
+            Text(text = filterText, fontFamily = nunitoMedium)
+        }
+
+
+}
+
 @Preview
 @Composable
 fun MeditationTypesComponent() {
+    val meditationOptions = MEDITATION_TYPE_LIST
+    LazyColumn(
+        Modifier.padding(15.dp),
+        verticalArrangement = Arrangement.spacedBy(15.dp)
+    ) {
+        items(meditationOptions.size){
+            MeditationOptionComponent(meditationTypes = meditationOptions[it])
+        }
+    }
 
+}
+// I DON'T KNOW WHAT THIS EXPERIMENTALMATERIALAPI DOES TO BE RESEARCHED MORE
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun MeditationOptionComponent(meditationTypes: MeditationType) {
+    Card(
+        shape = RoundedCornerShape(14.dp),
+        modifier = Modifier.fillMaxSize(),
+        backgroundColor = meditationTypes.backgroundColor
+    ){
+        Column(
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalAlignment = Alignment.Start,
+            modifier = Modifier.padding(20.dp)
+        ){
+            // This chip is for the Duration
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Chip(
+                    onClick = { /*TODO*/ },
+                    colors = ChipDefaults.chipColors(
+                        contentColor = Black,
+                        backgroundColor = meditationTypes.timeBackgroundColor
+                    ),
+                    // give the chip a roundedCornerShape
+                    shape = RoundedCornerShape(8.dp)
+                ) {
+                    Text(text = meditationTypes.duration, fontFamily = nunitoMedium)
+                }
+                // This chip is for the teacher
+                Chip(
+                    onClick = { /*TODO*/ },
+                    colors = ChipDefaults.chipColors(
+                        contentColor = Black,
+                        backgroundColor = Color.White
+                    ),
+                    // give the chip a roundedCornerShape
+                    shape = RoundedCornerShape(8.dp)
+                ) {
+                    Text(text = meditationTypes.teacher, fontFamily = nunitoMedium)
+                }
+            }
+
+        }
+        // put your title here
+        Text(
+            text = meditationTypes.title,
+            fontFamily = nunitoBold,
+            fontSize = 18.sp,
+            color = meditationTypes.contentColor,
+            textAlign = TextAlign.Start
+        )
+
+        // put your description here
+        Text(
+            text = meditationTypes.description,
+            fontFamily = nunitoLight,
+            fontSize = 16.sp,
+            color = meditationTypes.contentColor,
+            textAlign = TextAlign.Start
+        )
+
+    }
 }
 
 @Preview(showBackground = true)
