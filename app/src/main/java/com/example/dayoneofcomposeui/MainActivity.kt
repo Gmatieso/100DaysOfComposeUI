@@ -25,35 +25,41 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.breens.flowermeditationapp.ui.theme.*
 import com.example.dayoneofcomposeui.ui.theme.*
-import com.example.dayoneofcomposeui.ui.theme.utils.FILTER_CONTENT_LIST
-import com.example.dayoneofcomposeui.ui.theme.utils.FilterContent
-import com.example.dayoneofcomposeui.ui.theme.utils.MEDITATION_TYPE_LIST
-import com.example.dayoneofcomposeui.ui.theme.utils.MeditationType
+import com.example.dayoneofcomposeui.ui.utils.FILTER_CONTENT_LIST
+import com.example.dayoneofcomposeui.ui.utils.FilterContent
+import com.example.dayoneofcomposeui.ui.utils.MEDITATION_TYPE_LIST
+import com.example.dayoneofcomposeui.ui.utils.MeditationType
 import com.google.android.material.chip.Chip
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            DayOneOfComposeUITheme {
-                Column(
-                    modifier = Modifier
-                        .background(Grey)
-                        .fillMaxSize()
-                ){
-                    HeaderProfileComponent()
-                    SearchInputComponent()
-                    FilterOptionComponent()
-                    MeditationTypesComponent()
-                }
-
+            FlowerMeditationAppTheme {
+                DayOneOfComposeUI()
             }
         }
     }
 }
 
-@Preview
+
+
+
+@Composable
+fun DayOneOfComposeUI() {
+    Column(
+        modifier = Modifier
+            .background(Grey)
+            .fillMaxSize()
+    ){
+        HeaderProfileComponent()
+        SearchInputComponent()
+        FilterOptionComponent()
+        MeditationTypesComponent()
+    }
+}
 @Composable
 fun HeaderProfileComponent() {
     // This exist to support the rest of the composables and the BadgedBox composable
@@ -155,7 +161,7 @@ val filterOptions = FILTER_CONTENT_LIST
     }
 }
 
-// I DON'T KNOW WHAT THIS EXPERIMENTALMATERIALAPI DOES TO BE RESEARCHED MORE
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ChipComponent(filter: FilterContent)
@@ -193,7 +199,7 @@ fun MeditationTypesComponent() {
     }
 
 }
-// I DON'T KNOW WHAT THIS EXPERIMENTALMATERIALAPI DOES TO BE RESEARCHED MORE
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun MeditationOptionComponent(meditationTypes: MeditationType) {
@@ -256,10 +262,10 @@ fun MeditationOptionComponent(meditationTypes: MeditationType) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    DayOneOfComposeUITheme {
-
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun DefaultPreview() {
+//    DayOneOfComposeUITheme {
+//
+//    }
+//}

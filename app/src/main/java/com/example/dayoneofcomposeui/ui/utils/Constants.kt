@@ -1,9 +1,10 @@
-package com.example.dayoneofcomposeui.ui.theme.utils
+package com.example.dayoneofcomposeui.ui.utils
 
 import androidx.compose.ui.graphics.Color
-import com.example.dayoneofcomposeui.ui.theme.Black
-import com.example.dayoneofcomposeui.ui.theme.Green
-import com.example.dayoneofcomposeui.ui.theme.Yellow
+import com.breens.flowermeditationapp.ui.theme.Black
+import com.breens.flowermeditationapp.ui.theme.Green
+import com.breens.flowermeditationapp.ui.theme.Yellow
+
 
 val FILTER_CONTENT_LIST =  listOf(
    // put your content here

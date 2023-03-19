@@ -1,4 +1,4 @@
-package com.example.dayoneofcomposeui.ui.theme
+package com.breens.flowermeditationapp.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
@@ -8,12 +8,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.dayoneofcomposeui.R
 
-
-// For user to call use fonts in the design they must be defined here
 val nunitoLight = FontFamily(Font(R.font.nunito_light))
 val nunitoRegular = FontFamily(Font(R.font.nunito_regular))
-val nunitoBold = FontFamily(Font(R.font.nunito_bold))
 val nunitoMedium = FontFamily(Font(R.font.nunito_medium))
+val nunitoBold = FontFamily(Font(R.font.nunito_bold))
 
 // Set of Material typography styles to start with
 val Typography = Typography(
