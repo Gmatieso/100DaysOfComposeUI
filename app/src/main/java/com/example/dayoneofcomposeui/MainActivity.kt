@@ -262,10 +262,14 @@ fun MeditationOptionComponent(meditationTypes: MeditationType) {
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    DayOneOfComposeUITheme {
-//
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    FlowerMeditationAppTheme {
+//        DayOneOfComposeUI()
+        HeaderProfileComponent()
+        SearchInputComponent()
+        FilterOptionComponent()
+        MeditationTypesComponent()
+    }
+}
