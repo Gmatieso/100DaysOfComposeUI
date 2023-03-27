@@ -203,13 +203,12 @@ fun MeditationOptionComponent(meditationTypes: MeditationType) {
         shape = RoundedCornerShape(14.dp),
         modifier = Modifier.fillMaxSize(),
         backgroundColor = meditationTypes.backgroundColor
-    ){
+    ) {
         Column(
             verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.Start,
             modifier = Modifier.padding(20.dp)
-        ){
-            // This chip is for the Duration
+        ) {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Chip(
                     onClick = { /*TODO*/ },
@@ -217,44 +216,38 @@ fun MeditationOptionComponent(meditationTypes: MeditationType) {
                         contentColor = Black,
                         backgroundColor = meditationTypes.timeBackgroundColor
                     ),
-                    // give the chip a roundedCornerShape
                     shape = RoundedCornerShape(8.dp)
                 ) {
                     Text(text = meditationTypes.duration, fontFamily = nunitoMedium)
                 }
-                // This chip is for the teacher
                 Chip(
                     onClick = { /*TODO*/ },
                     colors = ChipDefaults.chipColors(
                         contentColor = Black,
                         backgroundColor = Color.White
                     ),
-                    // give the chip a roundedCornerShape
                     shape = RoundedCornerShape(8.dp)
                 ) {
                     Text(text = meditationTypes.teacher, fontFamily = nunitoMedium)
                 }
             }
 
+            Text(
+                text = meditationTypes.title,
+                fontFamily = nunitoBold,
+                fontSize = 18.sp,
+                color = meditationTypes.contentColor,
+                textAlign = TextAlign.Start
+            )
+
+            Text(
+                text = meditationTypes.description,
+                fontFamily = nunitoLight,
+                fontSize = 16.sp,
+                color = meditationTypes.contentColor,
+                textAlign = TextAlign.Start
+            )
         }
-        // put your title here
-        Text(
-            text = meditationTypes.title,
-            fontFamily = nunitoBold,
-            fontSize = 18.sp,
-            color = meditationTypes.contentColor,
-            textAlign = TextAlign.Start
-        )
-
-        // put your description here
-        Text(
-            text = meditationTypes.description,
-            fontFamily = nunitoLight,
-            fontSize = 16.sp,
-            color = meditationTypes.contentColor,
-            textAlign = TextAlign.Start
-        )
-
     }
 }
 
