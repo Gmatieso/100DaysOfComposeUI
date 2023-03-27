@@ -26,7 +26,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.breens.flowermeditationapp.ui.theme.*
-import com.example.dayoneofcomposeui.ui.theme.*
 import com.example.dayoneofcomposeui.ui.utils.FILTER_CONTENT_LIST
 import com.example.dayoneofcomposeui.ui.utils.FilterContent
 import com.example.dayoneofcomposeui.ui.utils.MEDITATION_TYPE_LIST
@@ -115,7 +114,6 @@ fun HeaderProfileComponent() {
 
 }
 
-@Preview
 @Composable
 fun SearchInputComponent() {
     OutlinedTextField(
@@ -147,7 +145,6 @@ fun SearchInputComponent() {
 
 }
 
-@Preview
 @Composable
 fun FilterOptionComponent() {
 val filterOptions = FILTER_CONTENT_LIST
@@ -185,7 +182,6 @@ fun ChipComponent(filter: FilterContent)
 
 }
 
-@Preview
 @Composable
 fun MeditationTypesComponent() {
     val meditationOptions = MEDITATION_TYPE_LIST
@@ -266,10 +262,6 @@ fun MeditationOptionComponent(meditationTypes: MeditationType) {
 @Composable
 fun DefaultPreview() {
     FlowerMeditationAppTheme {
-//        DayOneOfComposeUI()
-        HeaderProfileComponent()
-        SearchInputComponent()
-        FilterOptionComponent()
-        MeditationTypesComponent()
+        DayOneOfComposeUI()
     }
 }
